@@ -1,0 +1,51 @@
+@import "./colors.less";
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  width: 200px;
+  height: 32px;
+  border: 1px solid rgb(178, 178, 178);
+  border-radius: 4px;
+  padding-left: 2px;
+  outline: none;
+  background-color: rgb(214, 218, 223);
+  transition: background-color .34s ease-in;
+
+  &:hover {
+    background-color: rgb(233, 233, 233);
+  }
+
+  &::-webkit-input-placeholder {
+    text-align: center;
+    color: @text-dark-grey;
+  }
+
+  &:-moz-placeholder {
+    text-align: center;
+  }
+
+  &::-moz-placeholder {
+    text-align: center;
+  }
+
+  &:-ms-input-placeholder {
+    text-align: center;
+  }
+}
+
+button {
+  display: block;
+  width: 160px;
+  height: 34px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  background-color: @blue;
+  color: @text-light;
+  transition: background-color .34s ease-in;
+
+  &:hover {
+    background-color: lighten(@blue, 7%)
+  }
+}

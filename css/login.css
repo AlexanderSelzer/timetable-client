@@ -1,0 +1,32 @@
+.login-view {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+}
+.login-view .login-form {
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 4px;
+  background-color: rgba(244, 244, 244, 0.32);
+}
+.login-view .login-form input,
+.login-view .login-form button,
+.login-view .login-form .title {
+  margin: 10px auto;
+}
+.login-view .login-form .title {
+  display: block;
+  width: 260px;
+  font-size: 32px;
+  text-align: center;
+  color: #234168;
+}
+
+/*# sourceMappingURL=login.css.map */
