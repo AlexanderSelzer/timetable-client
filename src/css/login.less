@@ -1,4 +1,4 @@
-@import "./colors.less";
+@import "./variables.less";
 
 .login-view {
   display: flex;
@@ -22,6 +22,10 @@
       font-size: 32px;
       text-align: center;
       color: rgb(35, 65, 104);
+    }
+
+    @media (max-width: @screen-xs) {
+      width: 90%;
     }
   }
 
