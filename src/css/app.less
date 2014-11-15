@@ -1,0 +1,63 @@
+@import "./variables.less";
+@import "./utils.less";
+
+.app-view {
+  .header {
+    height: 60px;
+    width: 100%;
+    background-color: @blue;//rgb(45, 78, 178);
+
+    .profile {
+      .no-select();
+
+      float: right;
+      width: 140px;
+      height: 100%;
+      border-left: 2px solid rgb(45, 45, 56);
+
+      line-height: 60px;
+      vertical-align: middle;
+      text-align: center;
+      color: @text-light;
+      font-size: 24px;
+
+      transition: .3s background-color ease-in-out;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: @dark-blue;
+      }
+    }
+
+    .profile-popover {
+      padding: 4px;
+      background-color: rgb(250, 250, 250);
+      box-shadow: 0 0 7px rgba(63, 63, 63, .72);
+      border-radius: 2px;
+      border: 1px solid rgb(248, 248, 248);
+
+      color: @text-dark;
+      font-size: 16px;
+      line-height: normal;
+      text-align: left;
+      cursor: default;
+
+      div {
+        margin: 4px 0;
+      }
+
+      .logout {
+        width: 120px;
+        position: absolute;
+        bottom: 10px;
+        left: 60px;
+      }
+    }
+  }
+
+  .timetable-list {
+    width: 400px;
+    min-height: 240px;
+  }
+}

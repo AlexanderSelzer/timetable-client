@@ -22,19 +22,9 @@ gulp.task("js", function() {
 
   gulp.src(paths.js)
     .pipe(browserified)
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest("js/"))
 })
-
-/*
-gulp.task("js", function() {
-  gulp.src(paths.js)
-    .pipe(react())
-    .pipe(browserify())
-    .pipe(uglify())
-    .pipe(gulp.dest("js/"))
-})
-*/
 
 gulp.task("less", function() {
   gulp.src(paths.less)

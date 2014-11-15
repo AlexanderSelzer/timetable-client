@@ -3,14 +3,23 @@
 */
 
 var React = require("react")
+var Router = require("react-router")
 var api = require("../utils/api.js")
 
+var Fluxxor = require("fluxxor")
+var FluxMixin = Fluxxor.FluxMixin(React),
+    StoreWatchMixin = Fluxxor.StoreWatchMixin;
+
 var LoginView = React.createClass({
+  mixins: [FluxMixin, StoreWatchMixin("SessionStore")],
   getInitialState: function() {
     return {
       username: null,
       password: null
     }
+  },
+  getStateFromFlux: function() {
+    return {session: this.getFlux().store("SessionStore").getState()}
   },
   render: function() {
     var css = {
@@ -29,17 +38,12 @@ var LoginView = React.createClass({
     )
   },
   login: function() {
-    console.log("login")
+    var login = this.getFlux().actions.login
+
     var user = this.state.username || "alex"
     var pass = this.state.password || "pass"
-    api.login(user, pass).then(function(data) {
-      console.log(data)
-      var token = data.token
 
-      api.getProfile(token).then(function(data) {
-        console.log(data)
-      })
-    })
+    login({username: user, password: pass})
   }
 })
 
