@@ -16,20 +16,39 @@ var FluxMixin = Fluxxor.FluxMixin(React),
 
 var MainView = React.createClass({
   mixins: [FluxMixin, StoreWatchMixin("SessionStore")],
+  getInitialState: function() {
+    return {
+      currentSelected: null
+    }
+  },
   getStateFromFlux: function() {
-    return this.getFlux().store("SessionStore").getState()
+    return {
+      session: this.getFlux().store("SessionStore").getState()
+    }
+  },
+  componentWillMount: function() {
+    if (!this.state.currentSelected && this.state.session.user.timetables.length > 0) {
+      this.setState({
+        currentSelected: this.state.session.user.timetables[0]
+      })
+    }
   },
   render: function() {
     console.log(this.state)
     return (
       <div className="app-view">
-        <Header onLogout={this.onLogout} user={this.state.user} />
+        <Header onLogout={this.onLogout} user={this.state.session.user} />
         <div className="container">
-          <TimetableList user={this.state.user} />
-          <TimetableEditor />
+          <TimetableList user={this.state.session.user} onTimetableSelect={this.onTimetableSelect} />
+          <TimetableEditor timetable={this.state.currentSelected}/>
         </div>
       </div>
     )
+  },
+  onTimetableSelect: function(timetable) {
+    this.setState({
+      currentSelected: timetable
+    })
   },
   onLogout: function() {
     this.getFlux().actions.logout()
