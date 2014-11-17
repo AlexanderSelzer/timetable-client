@@ -8,6 +8,7 @@ var api = require("../utils/api.js")
 
 var Header = require("./Header")
 var TimetableList = require("./TimetableList")
+var TimetableEditor = require("./TimetableEditor")
 
 var Fluxxor = require("fluxxor")
 var FluxMixin = Fluxxor.FluxMixin(React),
@@ -25,6 +26,7 @@ var MainView = React.createClass({
         <Header onLogout={this.onLogout} user={this.state.user} />
         <div className="container">
           <TimetableList user={this.state.user} />
+          <TimetableEditor />
         </div>
       </div>
     )

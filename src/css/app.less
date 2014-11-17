@@ -57,8 +57,11 @@
   }
 
   .container {
-    padding-top: 20px;
-    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 10px;
+    width: 1020px;
     margin: 0 auto;
 
     @media (max-width: @screen-md) {
@@ -71,9 +74,9 @@
   }
 
   .timetable-list {
+    float: left;
     width: 240px;
-    padding-top: 10px;
-    //min-height: 240px;
+    margin: 10px;
     background-color: @light-blue;//rgb(230, 226, 237);
 
     .title {
@@ -82,6 +85,7 @@
       color: @text-light;//rgb(73, 93, 143);
       font-size: 24px;
       text-align: center;
+      overflow: hidden;
     }
 
     .timetable {
@@ -90,6 +94,7 @@
       line-height: 40px;
       font-size: 18px;
       text-align: center;
+      overflow: scroll;
 
       cursor: pointer;
 
@@ -99,6 +104,20 @@
         margin-bottom: 10px;
         box-shadow: 0 1px 4px rgb(23, 23, 23);
       }
+    }
+  }
+
+  .timetable-editor {
+    margin: 10px;
+    width: 760px;
+    background-color: @light-blue;
+
+    .title {
+      display: block;
+      margin-bottom: 10px;
+      color: @text-light;//rgb(73, 93, 143);
+      font-size: 24px;
+      text-align: center;
     }
   }
 }
