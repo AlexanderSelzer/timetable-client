@@ -23,7 +23,9 @@ var MainView = React.createClass({
     return (
       <div className="app-view">
         <Header onLogout={this.onLogout} user={this.state.user} />
-        <TimetableList user={this.state.user} />
+        <div className="container">
+          <TimetableList user={this.state.user} />
+        </div>
       </div>
     )
   },

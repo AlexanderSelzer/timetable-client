@@ -19,6 +19,7 @@ var TimetableList = React.createClass({
 
     return (
       <div className="timetable-list">
+      <div className="title">Timetables</div>
         {list}
       </div>
     )
