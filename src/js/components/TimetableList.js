@@ -26,10 +26,19 @@ var TimetableList = React.createClass({
       </div>
     )
   },
+  componentDidMount: function() {
+    var timetables = this.props.user.timetables
+
+    // always select the first one
+    if (timetables.length > 0) {
+      this.refs[timetables[0].id].setSelected(true)
+    }
+  },
   onTimetableSelect: function(timetable) {
     this.props.onTimetableSelect(timetable)
 
     var refs = this.refs
+    // deselect all other timetables
     this.props.user.timetables.forEach(function(timetable) {
       refs[timetable.id].setSelected(false)
     })

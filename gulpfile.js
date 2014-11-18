@@ -12,7 +12,7 @@ var transform = require("vinyl-transform")
 
 var paths = {
   js: ["src/js/**/*.js"],
-  less: ["src/css/*.less"]
+  less: ["src/css/**/*.less"]
 }
 
 gulp.task("js", function() {

@@ -33,6 +33,9 @@ var MainView = React.createClass({
       })
     }
   },
+  componentDidMount: function() {
+    this.getFlux().actions.loadData(this.session.token)
+  },
   render: function() {
     console.log(this.state)
     return (

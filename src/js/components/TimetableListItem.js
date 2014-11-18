@@ -13,8 +13,8 @@ var TimetableList = React.createClass({
   render: function() {
     var css = {}
     if (this.state.selected) {
-      css.backgroundColor = "rgb(156, 183, 206)"
-      //css.color = "rgb(232, 236, 237)"
+      css.backgroundColor = "rgb(50, 78, 127)"//"rgb(156, 183, 206)"
+      css.color = "rgb(232, 236, 237)"
     }
     return (
       <div style={css} onClick={this.onTimetableClick} className="timetable">

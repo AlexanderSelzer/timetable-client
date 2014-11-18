@@ -4,7 +4,9 @@
 
 var React = require("react")
 
-var TimetableList = React.createClass({
+var TextInput = require("./TextInput")
+
+var TimetableEditor = React.createClass({
   render: function() {
     var tt = this.props.timetable
 
@@ -18,12 +20,12 @@ var TimetableList = React.createClass({
     return (
       <div className="timetable-editor">
         <div className="title">Editor</div>
-        <div>Name: {tt.name}</div>
-        <div>Id: {tt.id}</div>
-        <div>Data: {tt.data}</div>
+        <TextInput label="name" value={tt.name} />
+        <TextInput label="id" value={tt.id} />
+        <TextInput label="data" value={tt.data} />
       </div>
     )
   }
 })
 
-module.exports = TimetableList
+module.exports = TimetableEditor

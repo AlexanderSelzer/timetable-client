@@ -15,6 +15,13 @@ var actions = {
       a.dispatch(C.LOGIN_FAIL, err)
     })
   },
+  loadData: function(token) {
+    api.getProfile(token).then(function(user) {
+      a.dispatch(C.LOGIN_DONE, {token: token, user: user})
+    }).catch(function(err) {
+      a.dispatch(C.LOGIN_FAIL, err)
+    })
+  },
   logout: function() {
     this.dispatch(C.LOGOUT)
   }
