@@ -34,7 +34,7 @@ module.exports = {
   * Returns a user object
   */
   getProfile: function(token) {
-    if (DEBUG) console.log("POST /profile")
+    if (DEBUG) console.log("GET /profile")
     return fetch(BASE + "/user", {
       headers: {
         "Authorization": "Bearer" + " " + token

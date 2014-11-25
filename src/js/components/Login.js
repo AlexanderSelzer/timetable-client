@@ -10,6 +10,8 @@ var Fluxxor = require("fluxxor")
 var FluxMixin = Fluxxor.FluxMixin(React),
     StoreWatchMixin = Fluxxor.StoreWatchMixin;
 
+var Button = require("./Button")
+
 var LoginView = React.createClass({
   mixins: [FluxMixin, StoreWatchMixin("SessionStore")],
   getInitialState: function() {
@@ -32,7 +34,7 @@ var LoginView = React.createClass({
           <input type="text" value={this.state.username} id="username" placeholder="username" />
           <input type="password" value={this.state.username} id="password" placeholder="password" />
 
-          <button onClick={this.login}>Login</button>
+          <Button label="Save" onClick={this.login}>Login</Button>
         </div>
       </div>
     )

@@ -5,11 +5,13 @@ var storage = require("../lib/storage")
 
 var SessionStore = Fluxxor.createStore({
   initialize: function() {
-    this.user = null
-    this.token = null
-    this.lastPull = null
+    this.data = {
+      user: null,
+      token: null,
+      lastPull: null
+    }
 
-    this.user = extend(this.user, JSON.parse(storage.get("session")))
+    this.data = extend(this.data, JSON.parse(storage.get("session")))
 
     this.bindActions(
       C.LOGIN, this.onLogin,
@@ -19,7 +21,7 @@ var SessionStore = Fluxxor.createStore({
     )
 
     this.on("change", function() {
-      storage.set("session", JSON.stringify(this.user))
+      storage.set("session", JSON.stringify(this.data))
     })
   },
   onLogin: function() {
@@ -29,21 +31,18 @@ var SessionStore = Fluxxor.createStore({
     console.log("fail", err)
   },
   onLoginSuccess: function(data) {
-    this.token = data.token
-    this.user = data.user
+    console.log("LOGIN_DONE", data)
+    this.data.token = data.token
+    this.data.user = data.user
     this.emit("change")
   },
   onLogout: function() {
-    this.token = null
-    this.user = null
+    this.data.token = null
+    this.data.user = null
     this.emit("change")
   },
   getState: function() {
-    return {
-      token: this.token,
-      user: this.user,
-      lastPull: this.lastPull
-    }
+    return this.data
   }
 })
 

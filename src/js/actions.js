@@ -16,6 +16,8 @@ var actions = {
     })
   },
   loadData: function(token) {
+    var a = this
+    
     api.getProfile(token).then(function(user) {
       a.dispatch(C.LOGIN_DONE, {token: token, user: user})
     }).catch(function(err) {

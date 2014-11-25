@@ -34,10 +34,10 @@ var MainView = React.createClass({
     }
   },
   componentDidMount: function() {
-    this.getFlux().actions.loadData(this.session.token)
+    this.getFlux().actions.loadData(this.state.session.token)
   },
   render: function() {
-    console.log(this.state)
+    console.log("session:", this.state.session)
     return (
       <div className="app-view">
         <Header onLogout={this.onLogout} user={this.state.session.user} />
